@@ -1,0 +1,57 @@
+.clsSWFrame {
+    margin: auto;
+    margin-top: 20px;
+    width: 50%;
+    padding: 20px;
+    border: 3px solid #000;
+    border-radius: 20px;
+    background-color: lightgreen;
+}
+
+.clsSWDisplay {
+    background-color: blue;
+    color: yellow;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: monospace;
+}
+
+.clsSWControls {
+    margin: auto;
+    text-align: center;
+}
+
+.clsSWButton{
+    background-color: darkgreen;
+    width: 120px;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 5px;
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+.clsSWButtonRed{
+    background-color: darkred;
+}
+
+.clsSWButton:disabled{
+  background-color: rgb(190, 199, 190);
+  color: #666666;
+}
+
+
+.clsSWLaps {
+    color: darkorange;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    font-family: monospace;
+    line-height: 10%;
+}
