@@ -47,6 +47,12 @@ while (i < names.length) {
     i++;
 }
 
+i = 0;
+do {
+    console.log(`do-while: i=${i}, names[i]=${names[i]}`);
+    i++;
+} while (i < names.length);
+
 for (let i=0; i < names.length; i++) {
     console.log(`for: i=${i}, names[i]=${names[i]}`);
 }

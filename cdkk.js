@@ -1,9 +1,11 @@
-function setCharAt(str, index, chr) {
-    if (index > str.length - 1) return str;
-    return str.substring(0, index) + chr + str.substring(index + 1);
+class CDKK {
+    static setCharAt(str, index, chr) {
+        if (index > str.length - 1) return str;
+        return str.substring(0, index) + chr + str.substring(index + 1);
+    }
 }
 
-class GameStatus {
+class cdkkGameStatus {
     inProgres = false;
     gameOver = false;
     winner = null;
@@ -41,14 +43,16 @@ class GameStatus {
 }
 
 
-class cdkkGGame {
-    gameStatus = new GameStatus();
+class cdkkGame {
+    gameStatus = new cdkkGameStatus();
 
     init() {
         // Once off initialisation
+        this.initComplete();
     }
     prepare() {
         // Per Game preparatipon (initialisation)
+        this.prepareComplete();
     }
     start() {
         // Start the game
@@ -59,10 +63,18 @@ class cdkkGGame {
         this.update(input);
         this.updateStatus();
     }
+    initComplete() {
+        const evt = new CustomEvent("game", { detail: { action: "init-complete" } });
+        document.dispatchEvent(evt);
+    }
+    prepareComplete() {
+        const evt = new CustomEvent("game", { detail: { action: "prepare-complete" } });
+        document.dispatchEvent(evt);
+    }
 }
 
 
-class cdkkUI {
+class cdkkGameUI {
     init() {
         // Once off initialisation
     }
@@ -87,21 +99,26 @@ class cdkkUI {
         document.dispatchEvent(ev);
     }
 
+    static createSVGElement(name, attrs = []) {
+        let svg_elem = document.createElementNS("http://www.w3.org/2000/svg", name);
+        for (const a in attrs) {
+            svg_elem.setAttribute(a, attrs[a]);
+        }
+        return svg_elem
+    }
 }
 
 
-class GameManager {
+class cdkkGameManager {
     game = null;
     ui = null;
+    autoStart = false;
 
-    constructor(game, ui, autostart = true) {
+    constructor(game, ui, autoStart = false) {
         this.game = game;
         this.ui = ui;
+        this.autoStart = autoStart;
         this.init();
-        this.prepare();
-        if (autostart) {
-            this.start();
-        }
     }
     init() {
         this.ui.init();
@@ -117,14 +134,30 @@ class GameManager {
         this.ui.start(this.game.view)
     }
     event(ev) {
-        if (ev.detail.action === "play") {
-            this.game.play(ev.detail.input);
-            this.game.updateStatus();
-            this.ui.displayGame(this.game.view);
-        } else if (ev.detail.action === "restart") {
-            this.prepare()
-            this.start();
+        switch (ev.detail.action) {
+            case "init-complete":
+                this.prepare();
+                break;
+
+            case "prepare-complete":
+                if (this.autoStart) {
+                    this.start();
+                }
+                break;
+
+            case "play":
+                this.game.play(ev.detail.input);
+                this.game.updateStatus();
+                this.ui.displayGame(this.game.view);
+                break;
+
+            case "restart":
+                this.autoStart = true;
+                this.prepare();
+                break;
         }
 
     }
 }
+
+export { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkGameManager };

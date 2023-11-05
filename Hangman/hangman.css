@@ -57,3 +57,17 @@ h1 {
     font-weight: bolder;
     color: white;
 }
+
+.clsHangman {
+    margin: auto;
+    width: 100px;
+    font-weight: bolder;
+}
+
+.clsHangmanSVGFrame {
+    stroke: black;
+}
+
+.clsHangmanSVGMan {
+    stroke: blue;
+}
