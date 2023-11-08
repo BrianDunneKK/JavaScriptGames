@@ -6,28 +6,31 @@ class CDKK {
 }
 
 class cdkkGameStatus {
-    inProgres = false;
-    gameOver = false;
+    #inProgres = false;
+    #gameOver = false;
     winner = null;
     reason = null;
+    get gameOver() {
+        return (!this.#inProgres && this.#gameOver);
+    }
     get win() {
-        return (!this.inProgres && this.gameOver && this.winner > 0);
+        return (!this.#inProgres && this.#gameOver && this.winner > 0);
     }
     get lose() {
-        return (!this.inProgres && this.gameOver && this.winner < 0);
+        return (!this.#inProgres && this.#gameOver && this.winner < 0);
     }
     get draw() {
-        return (!this.inProgres && this.gameOver && this.winner == 0);
+        return (!this.#inProgres && this.#gameOver && this.winner == 0);
     }
     startGame() {
-        this.inProgres = true;
-        this.gameOver = false;
+        this.#inProgres = true;
+        this.#gameOver = false;
         this.winner = null;
         this.reason = null;
     }
     endGame(winner, reason = "") {
-        this.inProgres = false;
-        this.gameOver = true;
+        this.#inProgres = false;
+        this.#gameOver = true;
         this.winner = winner;
         this.reason = reason;
     }
@@ -62,14 +65,13 @@ class cdkkGame {
         // Play the game = Take a turn = Act on user input
         this.update(input);
         this.updateStatus();
+        return this.gameStatus.gameOver;
     }
     initComplete() {
-        const evt = new CustomEvent("game", { detail: { action: "init-complete" } });
-        document.dispatchEvent(evt);
+        cdkkApp.dispatchEvent({ action: "init-complete" });
     }
     prepareComplete() {
-        const evt = new CustomEvent("game", { detail: { action: "prepare-complete" } });
-        document.dispatchEvent(evt);
+        cdkkApp.dispatchEvent({ action: "prepare-complete" });
     }
 }
 
@@ -95,8 +97,7 @@ class cdkkGameUI {
     play(input) {
         // Play the game = Take a turn = Act on user input
         input = this.processInput(input);
-        const ev = new CustomEvent("game", { detail: { action: "play", input: input } });
-        document.dispatchEvent(ev);
+        return cdkkApp.dispatchEvent({ action: "play", input: input });
     }
 
     static createSVGElement(name, attrs = []) {
@@ -109,21 +110,24 @@ class cdkkGameUI {
 }
 
 
-class cdkkGameManager {
+class cdkkApp {
     game = null;
     ui = null;
     autoStart = false;
+    static app = null;
 
-    constructor(game, ui, autoStart = false) {
+    constructor({ game, ui, autoInit = false, autoStart = false } = {}) {
         this.game = game;
         this.ui = ui;
         this.autoStart = autoStart;
-        this.init();
+        if (autoInit) {
+            this.init();
+        }
     }
     init() {
         this.ui.init();
         this.game.init();
-        document.addEventListener("game", ev => this.event(ev));
+        this.cdkkAddEventListener();
     }
     prepare() {
         this.game.prepare();
@@ -134,6 +138,7 @@ class cdkkGameManager {
         this.ui.start(this.game.view)
     }
     event(ev) {
+        let ret = null;
         switch (ev.detail.action) {
             case "init-complete":
                 this.prepare();
@@ -146,8 +151,7 @@ class cdkkGameManager {
                 break;
 
             case "play":
-                this.game.play(ev.detail.input);
-                this.game.updateStatus();
+                ret = this.game.play(ev.detail.input);
                 this.ui.displayGame(this.game.view);
                 break;
 
@@ -156,8 +160,37 @@ class cdkkGameManager {
                 this.prepare();
                 break;
         }
+        return ret;
+    }
+    cdkkAddEventListener() {
+        if (typeof document !== 'undefined') {
+            document.addEventListener("game", ev => this.event(ev));
+        }
+    }
 
+    static dispatchEvent(detail) {
+        let ret = null;
+        const evt = new CustomEvent("game", { detail: detail });
+        if (typeof document !== 'undefined') {
+            document.dispatchEvent(evt);
+        } else if (cdkkApp.app !== null) {
+            ret = cdkkApp.app.event(evt);
+        }
+        return ret;
+    }
+    playKeystrokes() {
+        process.stdin.on('keypress', (str, key) => {
+            if (key.ctrl && key.name === 'c') {
+                process.exit();
+            } else {
+                if (this.ui.play(str)) {
+                    process.exit();
+                };
+            }
+        });
     }
 }
 
-export { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkGameManager };
+
+export { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp };
+

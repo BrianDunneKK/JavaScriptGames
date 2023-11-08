@@ -1,4 +1,4 @@
-import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkGameManager } from '../cdkk.js';
+import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../cdkk.mjs';
 
 let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 

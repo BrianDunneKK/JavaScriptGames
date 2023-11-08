@@ -1,4 +1,4 @@
-import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkGameManager } from '../cdkk.js';
+import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../cdkk.mjs';
 
 class HangmanGame extends cdkkGame {
     #secretWord = "";  // Word the player is trying to guess
