@@ -1,4 +1,4 @@
-import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../cdkk.mjs';
+import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../../cdkk.mjs';
 
 let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -46,7 +46,7 @@ class HangmanUI extends cdkkGameUI {
     }
 
     prepare() {
-        // Per Game preparatipon (initialisation)
+        // Per Game preparation (initialisation)
         for (let i = 0; i < alphabet.length; i++) {
             let elemLetter = document.getElementById("letter_" + alphabet[i]);
             elemLetter.disabled = false;
@@ -65,11 +65,6 @@ class HangmanUI extends cdkkGameUI {
         } else {
             this.#elemOutcome.innerHTML = "";
         }
-
-        // let hm = gameView.hangman;
-        // let elemHM = document.createElement('pre');
-        // elemHM.innerHTML = hm.replace(new RegExp('\r?\n', 'g'), "<br/>");
-        //this.#elemHangman.replaceChildren(elemHM);
 
         let elemHMSVG = cdkkGameUI.createSVGElement('svg', { "width": "400", "height": "300" });
         this.#elemHangman.replaceChildren(elemHMSVG);

@@ -5,6 +5,7 @@ let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 class HangmanUI extends cdkkGameUI {
     init() {
+        // Read each keystroke as it is pressed
         readline.emitKeypressEvents(process.stdin);
         process.stdin.setRawMode(true);
     }
@@ -19,7 +20,7 @@ class HangmanUI extends cdkkGameUI {
         console.log(gameView.hangman);
         console.log();
         console.log(gameView.guess);
-        console.log();
+        console.log("\nGuesses: "+gameView.guessed.split('').join(' ')+"\n");
 
         if (gameView.status.win) {
             console.log("You won!!");

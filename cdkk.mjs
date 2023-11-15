@@ -3,6 +3,16 @@ class CDKK {
         if (index > str.length - 1) return str;
         return str.substring(0, index) + chr + str.substring(index + 1);
     }
+    static get isBrowser() {
+        return (typeof(window) === 'object' && '[object Window]' === window.toString.call(window));
+        try { return this === window; }
+        catch (e) { return false; }
+    }
+    static get isNode() {
+        return (typeof(global) === 'object' && '[object global]' === global.toString.call(global));
+        try { return this === global; }
+        catch (e) { return false; }
+    }
 }
 
 class cdkkGameStatus {
@@ -54,7 +64,7 @@ class cdkkGame {
         this.initComplete();
     }
     prepare() {
-        // Per Game preparatipon (initialisation)
+        // Per Game preparation (initialisation)
         this.prepareComplete();
     }
     start() {
@@ -67,11 +77,21 @@ class cdkkGame {
         this.updateStatus();
         return this.gameStatus.gameOver;
     }
-    initComplete() {
-        cdkkApp.dispatchEvent({ action: "init-complete" });
+    initComplete({ init_ok = true, err = null } = {}) {
+        if (init_ok) {
+            cdkkApp.dispatchEvent({ action: "init-complete" });
+        } else {
+            console.error(`${err.name}: ${err.message}`);
+            exit();
+        }
     }
-    prepareComplete() {
-        cdkkApp.dispatchEvent({ action: "prepare-complete" });
+    prepareComplete({ prep_ok = true, err = null } = {}) {
+        if (prep_ok) {
+            cdkkApp.dispatchEvent({ action: "prepare-complete" });
+        } else {
+            console.error(`${err.name}: ${err.message}`);
+            exit();
+        }
     }
 }
 
@@ -81,7 +101,7 @@ class cdkkGameUI {
         // Once off initialisation
     }
     prepare() {
-        // Per Game preparatipon (initialisation)
+        // Per Game preparation (initialisation)
     }
     start(gameView) {
         // Display the game at the start

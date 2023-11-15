@@ -8,5 +8,6 @@ Try to make these improvements to the game:
 3. Hide the Restart button until the player has won or lost.
 4. Display the man in red if the player loses.
 5. Prevent the player from continuing to guess after the game is over.
+6. In Stage1, add a space between letters when displaying the guesses.
 
-Note: This folder must contain package.json with the contents: { "type": "module" }"
+Note: The Stage1 folder must contain package.json with the contents: { "type": "module" }"

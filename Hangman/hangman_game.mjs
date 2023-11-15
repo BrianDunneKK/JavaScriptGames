@@ -1,31 +1,47 @@
+// To Do: Replace hangman_txt.length for web game
+// To Do: Make init() and processInput() in cosole game configurable ... create cdkkGameCUI in cdkk_node
+
 import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../cdkk.mjs';
 
 class HangmanGame extends cdkkGame {
-    #secretWord = "";  // Word the player is trying to guess
-    #guessWord = "";   // Word pattern based o nguesses so far
-    #guessMisses = 0;  // Number of incorrect guesses
-    #allWords = [];    // List of all words to use
+    #cfgWords;
+    #secretWord = "";      // Word the player is trying to guess
+    #guessWord = "";       // Word pattern based on guesses so far
+    #guessMisses = 0;      // Number of incorrect guesses
+    #guessedLetters = "";  // Letters guessed so far
+    #allWords = [];        // List of all words to use
+
+    constructor({ cfgWords }) {
+        super();
+        this.#cfgWords = cfgWords;
+    }
 
     get view() {
         return ({
             guess: this.#guessWord
             , misses: this.#guessMisses
+            , guessed: this.#guessedLetters
             , status: this.gameStatus
             , hangman: hangman_txt[this.#guessMisses]
         })
     }
     init() {
-        fetch('./hangman_words.txt')
-            .then(response => response.text())
-            .then((data) => {
-                this.#allWords = data.split('\r\n');
-                this.initComplete();
-            })
+        if (typeof (this.#cfgWords) === 'function') {
+            this.#allWords = this.#cfgWords();
+            this.initComplete({ init_ok: (this.#allWords.length > 0) });
+        } else {
+            fetch(this.#cfgWords)
+                .then(response => response.text())
+                .then((data) => {
+                    this.#allWords = data.split('\r\n');
+                    this.initComplete();
+                });
+        }
     }
     prepare() {
-        // Per Game preparatipon (initialisation)
+        // Per Game preparation (initialisation)
         this.#guessMisses = 0;
-        // this.#secretWord = "javascript";
+        this.#guessedLetters = "";
         this.#secretWord = this.#allWords[Math.floor(Math.random() * this.#allWords.length)];
         console.log(this.#secretWord);
         this.#guessWord = "_".repeat(this.#secretWord.length);
@@ -41,6 +57,9 @@ class HangmanGame extends cdkkGame {
                 }
             }
             this.#guessMisses += miss;
+            if (!this.#guessedLetters.match(input)) {
+                this.#guessedLetters = this.#guessedLetters + input;
+            }
         }
     }
     updateStatus() {

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>CDKK Number Guessing Game - Stage 1</title>
+</head>
+
+<body>
+    <h1>Guess the Number</h1>
+    <p>We have selected a random number between 1 - 10. See if you can guess it.</p>
+    <input type="text" id="idGuess">
+    <input type="submit" id="idSubmitGuess">
+    <p id="idResult"></p>
+    <script>
+        let secret = Math.floor(Math.random() * 10 + 1);
+        document.getElementById("idSubmitGuess").addEventListener('click', uiSubmitGuess);
+
+        function uiSubmitGuess() {
+            let guess = document.getElementById("idGuess").value;
+            let result = "";
+            if (guess == secret) {
+                result = `Congratulations ... You guess it right!`;
+            }
+            else if (guess > secret) {
+                result = "That's incorrect ... Try a smaller number.";
+            }
+            else {
+                result = "That's incorrect ... Try a larger number.";
+            }
+            document.getElementById("idResult").innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
