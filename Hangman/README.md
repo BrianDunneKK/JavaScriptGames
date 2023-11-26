@@ -10,4 +10,4 @@ Try to make these improvements to the game:
 5. Prevent the player from continuing to guess after the game is over.
 6. In Stage1, add a space between letters when displaying the guesses.
 
-Note: The Stage1 folder must contain package.json with the contents: { "type": "module" }"
+Note: The Stage1 folder must contain package.json with the contents: { "type": "module" }

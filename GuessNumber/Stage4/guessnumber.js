@@ -6,10 +6,12 @@ let elemGuess = document.getElementById("idGuess");
 let elemSubmitGuess = document.getElementById("idSubmitGuess");
 
 elemSubmitGuess.addEventListener('click', uiSubmitGuess);
+elemGuess.addEventListener('focus', uiClearResult);
 
 function uiSubmitGuess() {
     if (elemGuess.value == secret) {
         elemResult.innerHTML = `Congratulations ... You guess it right in ${numGuesses} guesses!`;
+        elemResult.classList.add('clsCorrectGuess');
     }
     else if (elemGuess.value > secret) {
         numGuesses++;
@@ -19,4 +21,8 @@ function uiSubmitGuess() {
         numGuesses++;
         elemResult.innerHTML = "That's incorrect ... Try a larger number.";
     }
+}
+
+function uiClearResult() {
+    elemResult.innerHTML = "";
 }

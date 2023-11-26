@@ -1,10 +1,10 @@
-import { CDKK, cdkkApp } from '../../cdkk.mjs';
-import { cdkkNode } from '../../cdkk_node.mjs';
+import { CDKK, cdkkApp } from '../../CDKK/cdkk.mjs';
+import { cdkkNode } from '../../CDKK/cdkk_node.mjs';
 import { HangmanGame } from '../hangman_game.mjs';
 import { HangmanUI } from './hangman_ui.mjs';
 
 function hangmanWords() {
-    let ret = cdkkNode.readFileSync('../hangman_words.txt');
+    let ret = cdkkNode.readFileSync('Hangman/hangman_words.txt');
     let words = [];
     if (ret.contents !== null) {
         words = ret.contents.split('\r\n');

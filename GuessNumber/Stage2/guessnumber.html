@@ -1,19 +1,38 @@
 <html>
 
 <head>
-    <title>CDKK Number Guessing Game</title>
+    <title>CDKK Number Guessing Game - Stage 1</title>
 </head>
 
 <body>
-    <h1>Guess the Number</h1>
-    <div class="clsGame">
-        <p>We have selected a random number between 1 - 10. See if you can guess it.</p>
-        <label for="idGuess">Enter a guess:</label>
-        <input type="text" id="idGuess">
-        <input type="submit" value="Submit guess" id="idSubmitGuess">
-        <p id="idResult"></p>
-    </div>
-    <script src="guessnumber.js"></script>
+    <h1>Guess the Number - Stage 1</h1>
+    <p>We have selected a random number between 1 - 10. See if you can guess it.</p>
+    <input type="text" id="idGuess">
+    <input type="submit" id="idSubmitGuess">
+    <p id="idResult"></p>
+    <script>
+        let secret = Math.floor(Math.random() * 10 + 1);
+        document.getElementById("idSubmitGuess").addEventListener('click', uiSubmitGuess);
+
+        function uiSubmitGuess() {
+            let num = document.getElementById("idGuess").value;
+            let result = guess(num);
+            document.getElementById("idResult").innerHTML = result;
+        }
+        function guess(num) {
+            let result = "";
+            if (num == secret) {
+                result = `Congratulations ... You guess it right!`;
+            }
+            else if (num > secret) {
+                result = "That's incorrect ... Try a smaller number.";
+            }
+            else {
+                result = "That's incorrect ... Try a larger number.";
+            }
+            return result;
+        }
+    </script>
 </body>
 
 </html>

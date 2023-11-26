@@ -4,16 +4,13 @@ let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 class HangmanUI extends cdkkGameUI {
     #elemGuess = document.getElementById("idWordGuess");
+    #elemGuesses = document.getElementById("idGuesses");
     #elemOutcome = document.getElementById("idOutcome");
     #elemHangman = document.getElementById("idHangman");
 
     init() {
         // Once off initialisation
         this._initCreateLetters();
-        document.addEventListener('keypress', (event) => {
-            let elemLetter = document.getElementById("letter_" + event.key);
-            elemLetter.click();
-        }, false);
         document.getElementById('idRestart').addEventListener("click", ev => {
             const evt = new CustomEvent("game", { detail: { action: "restart" } });
             document.dispatchEvent(evt);
@@ -29,7 +26,7 @@ class HangmanUI extends cdkkGameUI {
             let letter = document.createElement('button');
             letter.id = "letter_" + alphabet[i];
             letter.innerHTML = alphabet[i];
-            letter.classList.add('clsLetter');
+            letter.style = "width: 50px; height: 50px;"
             letter.addEventListener("click", ev => this.play(alphabet[i]));
             letters.appendChild(letter);
             if ((i + 1) % 9 === 0) {
@@ -39,23 +36,10 @@ class HangmanUI extends cdkkGameUI {
         }
     }
 
-    processInput(input) {
-        // Process input before passing to game
-        document.getElementById("letter_" + input).disabled = true;
-        return input.toLowerCase();
-    }
-
-    prepare() {
-        // Per Game preparation (initialisation)
-        for (let i = 0; i < alphabet.length; i++) {
-            let elemLetter = document.getElementById("letter_" + alphabet[i]);
-            elemLetter.disabled = false;
-        }
-    }
-
     displayGame(gameView) {
         // Display the game based on the view provided
         this.#elemGuess.innerHTML = gameView.guess;
+        this.#elemGuesses.innerHTML = gameView.guessed;
 
         this.#elemOutcome = document.getElementById("idOutcome");
         if (gameView.status.win) {
