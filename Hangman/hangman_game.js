@@ -1,7 +1,7 @@
 // To Do: Replace hangman_txt.length for web game
 // To Do: Make init() and processInput() in cosole game configurable ... create cdkkGameCUI in cdkk_node
 
-import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../CDKK/cdkk.mjs';
+import { CDKK, cdkkGameStatus, cdkkGame, cdkkGameUI, cdkkApp } from '../CDKK/cdkk.js';
 
 class HangmanGame extends cdkkGame {
     #cfgWords;

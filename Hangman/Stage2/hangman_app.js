@@ -1,6 +1,6 @@
-import { CDKK, cdkkApp } from '../../CDKK/cdkk.mjs';
-import { HangmanGame } from '../hangman_game.mjs'
-import { HangmanUI } from './hangman_ui.mjs'
+import { CDKK, cdkkApp } from '../../CDKK/cdkk.js';
+import { HangmanGame } from '../hangman_game.js'
+import { HangmanUI } from './hangman_ui.js'
 
 let game = new HangmanGame({ cfgWords: '../hangman_words.txt' });
 let ui = new HangmanUI();

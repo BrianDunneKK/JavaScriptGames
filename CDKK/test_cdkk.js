@@ -1,5 +1,5 @@
-import { CDKK } from './cdkk.mjs';
-import { cdkkNode } from './cdkk_node.mjs'
+import { CDKK } from './cdkk.js';
+import { cdkkNode } from './cdkk_node.js'
 
 if (CDKK.ìsBrowser) {
     console.log("Browser");
@@ -13,14 +13,14 @@ if (CDKK.isNode) {
 }
 
 if (CDKK.isNode) {
-    let ret1 = cdkkNode.readFileSync('Hangman/hangman_words.txt');
+    let ret1 = cdkkNode.readFileSync('Wordle/Wordle_words.txt');
     if (ret1.contents !== null) {
         console.log("1.Contents OK");
     }
     if (ret1.err !== null) {
         console.log("1.Error reading file: " + ret1.err.message);
     }
-    let ret2 = cdkkNode.readFileSync('Hangman/hangman_words2.txt');
+    let ret2 = cdkkNode.readFileSync('Wordle/Wordle_words2.txt');
     if (ret2.contents !== null) {
         console.log("2.Contents OK");
     }

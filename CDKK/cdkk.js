@@ -1,5 +1,5 @@
 /**
- * COderDojo Kilkenny game and utility module
+ * CoderDojo Kilkenny game and utility module
  * @module cdkk
  */
 
@@ -84,6 +84,12 @@ class cdkkGame {
         this.update(input);
         this.updateStatus();
         return this.gameStatus.gameOver;
+    }
+    update(input) {
+        // Update the game based in this input
+    }
+    updateStatus() {
+        // Update the game status
     }
     initComplete({ init_ok = true, err = null } = {}) {
         if (init_ok) {
@@ -173,9 +179,9 @@ class cdkkApp {
      * Once off initialisation of the game
      */
     init() {
+        this.cdkkAddEventListener();
         this.ui.init();
         this.game.init();
-        this.cdkkAddEventListener();
     }
 
     /**
