@@ -33,7 +33,7 @@ class HangmanGame extends cdkkGame {
             fetch(this.#cfgWords)
                 .then(response => response.text())
                 .then((data) => {
-                    this.#allWords = data.split('\r\n');
+                    this.#allWords = data.split(/\r?\n/);
                     this.initComplete();
                 });
         }

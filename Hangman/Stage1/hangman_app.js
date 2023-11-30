@@ -7,7 +7,7 @@ function hangmanWords() {
     let ret = cdkkNode.readFileSync('Hangman/hangman_words.txt');
     let words = [];
     if (ret.contents !== null) {
-        words = ret.contents.split('\r\n');
+        words = ret.contents.split(/\r?\n/);
     }
     if (ret.err !== null) {
         console.error(ret.err.message);
