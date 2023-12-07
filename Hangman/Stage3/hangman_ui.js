@@ -7,12 +7,15 @@ class HangmanUI extends cdkkGameUI {
     #elemOutcome = document.getElementById("idOutcome");
     #elemHangman = document.getElementById("idHangman");
 
+    constructor() {
+        super({ toLower: true });
+    }
+
     init() {
         // Once off initialisation
         this._initCreateLetters();
         document.addEventListener('keypress', (event) => {
-            let elemLetter = document.getElementById("letter_" + event.key);
-            elemLetter.click();
+            this.play(event.key);
         }, false);
         document.getElementById('idRestart').addEventListener("click", ev => {
             const evt = new CustomEvent("game", { detail: { action: "restart" } });
@@ -41,12 +44,14 @@ class HangmanUI extends cdkkGameUI {
 
     processInput(input) {
         // Process input before passing to game
-        document.getElementById("letter_" + input).disabled = true;
-        return input.toLowerCase();
+        const input2 = super.processInput(input);
+        document.getElementById("letter_" + input2).disabled = true;
+        return input2;
     }
 
     prepare() {
         // Per Game preparation (initialisation)
+        super.prepare();
         for (let i = 0; i < alphabet.length; i++) {
             let elemLetter = document.getElementById("letter_" + alphabet[i]);
             elemLetter.disabled = false;

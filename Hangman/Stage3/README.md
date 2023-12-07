@@ -1,4 +1,4 @@
-# Hangman - Stege 3
+# Hangman - Stage 3
 JavaScript game created by CoderDojo Kilkenny
 
 This is Stage 3 in the development of Hangman.

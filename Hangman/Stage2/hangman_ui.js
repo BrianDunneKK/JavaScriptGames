@@ -8,6 +8,10 @@ class HangmanUI extends cdkkGameUI {
     #elemOutcome = document.getElementById("idOutcome");
     #elemHangman = document.getElementById("idHangman");
 
+    constructor() {
+        super({ toLower: true });
+    }
+
     init() {
         // Once off initialisation
         this._initCreateLetters();

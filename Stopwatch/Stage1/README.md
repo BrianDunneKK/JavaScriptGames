@@ -1,4 +1,4 @@
-# Stopwatch - Stege 1
+# Stopwatch - Stage 1
 JavaScript game created by CoderDojo Kilkenny
 
 This is Stage 1 in the development of a stopwatch.

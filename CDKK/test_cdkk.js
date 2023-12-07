@@ -13,14 +13,14 @@ if (CDKK.isNode) {
 }
 
 if (CDKK.isNode) {
-    let ret1 = cdkkNode.readFileSync('Wordle/Wordle_words.txt');
+    let ret1 = cdkkNode.readFileSync('Wordle/words_wordle.txt');
     if (ret1.contents !== null) {
         console.log("1.Contents OK");
     }
     if (ret1.err !== null) {
         console.log("1.Error reading file: " + ret1.err.message);
     }
-    let ret2 = cdkkNode.readFileSync('Wordle/Wordle_words2.txt');
+    let ret2 = cdkkNode.readFileSync('Wordle/words_wordle2.txt');
     if (ret2.contents !== null) {
         console.log("2.Contents OK");
     }

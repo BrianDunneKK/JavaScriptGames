@@ -18,10 +18,10 @@ class HangmanGame extends cdkkGame {
 
     get view() {
         return ({
-            guess: this.#guessWord
+            ...super.view
+            , guess: this.#guessWord
             , misses: this.#guessMisses
             , guessed: this.#guessedLetters
-            , status: this.gameStatus
             , hangman: hangman_txt[this.#guessMisses]
         })
     }
@@ -61,8 +61,11 @@ class HangmanGame extends cdkkGame {
                 this.#guessedLetters = this.#guessedLetters + input;
             }
         }
+        return (input != null && input != '')
     }
-    updateStatus() {
+    
+    updateStatus(updated) {
+        super.updateStatus(updated);
         if (this.#guessWord === this.#secretWord) {
             this.gameStatus.endGameWin();
         } else if (this.#guessMisses >= (hangman_txt.length - 1)) {

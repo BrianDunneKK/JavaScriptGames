@@ -9,12 +9,12 @@ class CDKK {
         return str.substring(0, index) + chr + str.substring(index + 1);
     }
     static get isBrowser() {
-        return (typeof(window) === 'object' && '[object Window]' === window.toString.call(window));
+        return (typeof (window) === 'object' && '[object Window]' === window.toString.call(window));
         try { return this === window; }
         catch (e) { return false; }
     }
     static get isNode() {
-        return (typeof(global) === 'object' && '[object global]' === global.toString.call(global));
+        return (typeof (global) === 'object' && '[object global]' === global.toString.call(global));
         try { return this === global; }
         catch (e) { return false; }
     }
@@ -28,6 +28,8 @@ class cdkkGameStatus {
     #gameOver = false;
     winner = null;
     reason = null;
+    updated = false;
+
     get gameOver() {
         return (!this.#inProgres && this.#gameOver);
     }
@@ -67,6 +69,11 @@ class cdkkGameStatus {
 class cdkkGame {
     gameStatus = new cdkkGameStatus();
 
+    get view() {
+        return ({
+            status: this.gameStatus
+        })
+    }
     init() {
         // Once off initialisation
         this.initComplete();
@@ -79,18 +86,35 @@ class cdkkGame {
         // Start the game
         this.gameStatus.startGame();
     }
+
+    /**
+     * Play the game = Take a turn = Act on user input
+     * @param {any} input User input = Player's current move
+     * @returns {boolean} True if the game is over
+     */
     play(input) {
-        // Play the game = Take a turn = Act on user input
-        this.update(input);
-        this.updateStatus();
+        const updated = this.update(input);
+        this.updateStatus(updated);
         return this.gameStatus.gameOver;
     }
+
+    /**
+     * Update the game based in this input
+     * @param {any} input User input = Player's current move
+     * @returns {boolean} True if the game was updated
+     */
     update(input) {
-        // Update the game based in this input
+        return true;
     }
-    updateStatus() {
-        // Update the game status
+
+    /**
+     * Update the game status
+     * @param {boolean} updated True if the game was updated
+     */
+    updateStatus(updated) {
+        this.gameStatus.updated = updated;
     }
+
     initComplete({ init_ok = true, err = null } = {}) {
         if (init_ok) {
             cdkkApp.dispatchEvent({ action: "init-complete" });
@@ -110,28 +134,89 @@ class cdkkGame {
 }
 
 
+/**
+ * Class representing a game user interface
+ */
 class cdkkGameUI {
+    /** @member {toLower} - If true, convert all input to lower case */
+    toLower = false;
+
+    /** @member {toUpper} - If true, convert all input to upper case */
+    toUpper = false;
+
+    /** @member {toWord} - If true, buffer individual keystrokes and only play when Enter is pressed */
+    toWord = false;
+
+    /** @member {toWord} - If true, add an event listener to process/play keyboard input */
+    playKeys = false;
+
+    _currentWord = '';
+    _currentKey = '';
+
+    constructor({ toLower = false, toUpper = false, toWord = false, playKeys = false } = {}) {
+        this.toLower = toLower;
+        this.toUpper = toUpper;
+        this.toWord = toWord;
+        this.playKeys = playKeys;
+    }
+
     init() {
         // Once off initialisation
+        if (this.playKeys) {
+            document.addEventListener('keypress', (event) => {
+                this.play(event.key);
+            }, false);
+        }
     }
+
     prepare() {
         // Per Game preparation (initialisation)
+        this._currentWord = '';
+        this._currentKey = '';
+
     }
+
     start(gameView) {
         // Display the game at the start
         this.displayGame(gameView)
     }
+
     displayGame(gameView) {
         // Display the game based on the view provided
     }
+
     processInput(input) {
         // Process input before passing to game
-        return input;
+        let ret_input = input;
+        if (this.toLower) {
+            ret_input = ret_input.toLowerCase();
+        }
+        if (this.toUpper) {
+            ret_input = ret_input.toUpperCase();
+        }
+        if (this.toWord) {
+            if (ret_input.toUpperCase() == "ENTER") {
+                ret_input = this._currentWord;
+                this._currentWord = '';
+                this._currentKey = '';
+            } else {
+                this._currentWord = this._currentWord + ret_input;
+                this._currentKey = ret_input;
+                ret_input = '';
+            }
+            // To Do
+        }
+        return ret_input;
     }
+
     play(input) {
         // Play the game = Take a turn = Act on user input
         input = this.processInput(input);
-        return cdkkApp.dispatchEvent({ action: "play", input: input });
+        if (input === '') {
+            return cdkkApp.dispatchEvent({ action: "display" });
+        } else {
+            return cdkkApp.dispatchEvent({ action: "play", input: input });
+        }
     }
 
     static createSVGElement(name, attrs = []) {
@@ -153,9 +238,9 @@ class cdkkApp {
     /** @member {cdkkGameUI} - Game user interface */
     ui = null;
 
-    /** @member {boolean} - Automatic initialisation */    
+    /** @member {boolean} - Automatic initialisation */
     autoStart = false;
-    
+
     /** @member {cdkkApp} - Game application singleton */
     static app = null;
 
@@ -210,6 +295,10 @@ class cdkkApp {
                 if (this.autoStart) {
                     this.start();
                 }
+                break;
+
+            case "display":
+                this.ui.displayGame(this.game.view);
                 break;
 
             case "play":

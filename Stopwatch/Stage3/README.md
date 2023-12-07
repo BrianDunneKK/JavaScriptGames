@@ -1,4 +1,4 @@
-# Stopwatch - Stege 3
+# Stopwatch - Stage 3
 JavaScript game created by CoderDojo Kilkenny
 
 This is Stage 3 in the development of a stopwatch.

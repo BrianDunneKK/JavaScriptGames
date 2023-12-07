@@ -1,4 +1,4 @@
-# Guess the Number - Stege 4
+# Guess the Number - Stage 4
 JavaScript game created by CoderDojo Kilkenny
 
 This is Stage 4 in the development of a basic guessing game.

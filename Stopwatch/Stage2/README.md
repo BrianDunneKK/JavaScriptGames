@@ -1,4 +1,4 @@
-# Stopwatch - Stege 2
+# Stopwatch - Stage 2
 JavaScript game created by CoderDojo Kilkenny
 
 This is Stage 2 in the development of a stopwatch.

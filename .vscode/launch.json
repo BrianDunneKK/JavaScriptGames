@@ -100,10 +100,18 @@
             "postDebugTask": "StopServer"
         },
         {
-            "name": "Wordle - StageN",
+            "name": "Wordle - Stage3",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:5500/Wordle/StageN/wordle.html",
+            "url": "http://localhost:5500/Wordle/Stage3/wordle.html",
+            "preLaunchTask": "StartServer",
+            "postDebugTask": "StopServer"
+        },
+        {
+            "name": "Wordle - Stage4",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:5500/Wordle/Stage4/wordle.html",
             "preLaunchTask": "StartServer",
             "postDebugTask": "StopServer"
         },
