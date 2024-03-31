@@ -6,6 +6,7 @@ let score = 0;
 let elemFlag0 = document.getElementById('idFlag0');
 let elemFlag1 = document.getElementById('idFlag1');
 let elemFlag2 = document.getElementById('idFlag2');
+let elemNext = document.getElementById("idNextFlags");
 let elemResult = document.getElementById('idResult');
 let elemScore = document.getElementById('idScore');
 
@@ -34,12 +35,15 @@ elemFlag0.addEventListener('click', function () { guessFlag(0); });
 elemFlag1.addEventListener('click', function () { guessFlag(1); });
 elemFlag2.addEventListener('click', function () { guessFlag(2); });
 
-document.getElementById("idNextFlags").addEventListener('click', function () {
+elemNext.disabled = true;
+elemNext.addEventListener('click', function () {
     displayFlags();
+    elemNext.disabled = true;
     elemResult.innerHTML = "";
 });
 
 function guessFlag(flagNum) {
+    elemNext.disabled = false;
     if (flagNum == correctFlag) {
         elemResult.innerHTML = "Correct";
         score++;
