@@ -24,7 +24,7 @@ fetch("../flags/countries.json")
     .then(json => {
         jsonFlags = json;
         for (const country in json) {
-            flags.push({ code: country, country: jsonFlags[country] });
+            flags.push({ code: country.toLowerCase(), country: jsonFlags[country] });
         }
         shuffle(flags);
         displayFlags();
