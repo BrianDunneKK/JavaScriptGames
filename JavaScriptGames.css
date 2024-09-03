@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+/* Style the tab */
+.tab {
+    float: left;
+    background-color: deepskyblue;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: cornflowerblue;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    color: white;
+    background-color: mediumblue;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 10px;
+    margin-left: 10px;
+    border: 2px solid mediumblue;
+    width: 80%;
+}
+
+.menuspacer {
+    background-color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+h1 {
+    color: mediumblue;
+    font-size: x-large;
+}
+
+
+h2 {
+    color: firebrick;
+    font-size: larger;
+    font-style: italic;
+    margin-top: 1em;
+}
+
+li {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+code {
+    font-family: monospace;
+    font-size: 110%;
+    background-color: #CCFFFF;
+    padding-inline-start: 0.5em;
+    padding-inline-end: 0.5em;
+}
+
+pre {
+    font-family: monospace;
+    font-size: 110%;
+    line-height: 140%;
+    background-color: #CCFFFF;
+    padding-inline-start: 1em;
+    padding-inline-end: 1.5em;
+    padding-block-start: 0.5em;
+    padding-block-end: 0.5em;
+    border: 1px solid dodgerblue;
+    border-radius: 0.75em;
+    width: max-content;
+}
+
+.explain {
+    background-color: lightgreen;
+    padding-inline-start: 2em;
+    padding-inline-end: 1.5em;
+    padding-block-start: 0.5em;
+    padding-block-end: 0.5em;
+    margin-inline-start: 3em;
+    margin-inline-end: 3em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    border: 1px solid darkgreen;
+    border-radius: 0.75em;
+    text-indent: -2ch;
+}
+
+.explain::before {
+    content: " \1f6c8  ";
+}
+
+table {
+    margin-left: 2em;
+    ;
+}
+
+th{
+    background-color: lightslategrey;
+}
+
+table,
+th,
+td {
+    border: 1px solid mediumblue;
+    border-collapse: collapse;
+    padding-inline-start: 0.5em;
+    padding-inline-end: 0.5em;
+}
+
+iframe{
+	display:block;
+	margin:0 auto;
+    object-position: right top;
+}
