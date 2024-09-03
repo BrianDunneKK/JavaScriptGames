@@ -118,7 +118,7 @@ table {
     ;
 }
 
-th{
+th {
     background-color: lightslategrey;
 }
 
@@ -131,8 +131,10 @@ td {
     padding-inline-end: 0.5em;
 }
 
-iframe{
-	display:block;
-	margin:0 auto;
-    object-position: right top;
+iframe {
+    display: block;
+    margin: 0 auto;
+    resize: both;
+    width: 800px;
+    height: 800px;
 }
