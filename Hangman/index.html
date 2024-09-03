@@ -18,14 +18,16 @@
 
     <div id="1" class="tabcontent">
         <h1>Hangman - Stage 1</h1>
-        <p>To view the code, clone the Git repo <a href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
+        <p>To view the code, clone the Git repo <a
+                href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
         <p>This is Stage 1 in the development of Hangman. It is a console only game that runs using Node.JS.</p>
         <p>Stage 1 is not currently working, so start on Stage 2.</p>
     </div>
     <div id="2" class="tabcontent">
         <h1>Hangman - Stage 2</h1>
         <p>Run the code ... <a href="./Stage2/hangman.html">Stage 2</a></p>
-        <p>To view the code, clone the Git repo <a href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
+        <p>To view the code, clone the Git repo <a
+                href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
         <p>This is Stage 2 in the development of Hangman. In this stage, these improvements have been made:</p>
         <ul>
             <li>The game is now a simple web application.</li>
@@ -40,9 +42,13 @@
     </div>
     <div id="3" class="tabcontent">
         <h1>Hangman - Stage 3</h1>
+        <button id="idShowStage3">Show</button>
+        <button id="idHideStage3">Hide</button>
+        <button id="idRunStage3">Run</button>
         <p>Run the code ... <a href="./Stage3/hangman.html">Stage 3</a></p>
-        <iframe id="stage3" title="Stage 3" src="./Stage3/hangman.html"></iframe>
-        <p>To view the code, clone the Git repo <a href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
+        <iframe id="idIFrameStage3" title="Stage 3" src="./Stage3/hangman.html"></iframe>
+        <p>To view the code, clone the Git repo <a
+                href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
         <p>This is Stage 2 in the development of Hangman. In this stage, these improvements have been made:</p>
         <ul>
             <li>A new CSS style file has been added and applied to the HTML.</li>
@@ -60,6 +66,16 @@
         </ol>
     </div>
     <script src="/coding/coding.js">
+    </script>
+    <script>
+        let elemStage3 = document.getElementById('idIFrameStage3');
+        elemStage3.disabled = true;
+        document.getElementById('idShowStage3').addEventListener('click', function () {
+            elemStage3.disabled = false;
+        });
+        document.getElementById('idHideStage3').addEventListener('click', function () {
+            elemStage3.disabled = true;
+        });
     </script>
 
 </body>
