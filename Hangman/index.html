@@ -69,12 +69,15 @@
     </script>
     <script>
         let elemStage3 = document.getElementById('idIFrameStage3');
-        elemStage3.disabled = true;
+        elemStage3.style.display = "none";
         document.getElementById('idShowStage3').addEventListener('click', function () {
-            elemStage3.disabled = false;
+            elemStage3.style.display = "block";
         });
         document.getElementById('idHideStage3').addEventListener('click', function () {
-            elemStage3.disabled = true;
+            elemStage3.style.display = "none";
+        });
+        document.getElementById('idRunStage3').addEventListener('click', function () {
+            location.href = '/coding/javascript.html'
         });
     </script>
 
