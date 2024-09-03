@@ -43,7 +43,7 @@
     <div id="3" class="tabcontent">
         <h1>Hangman - Stage 3</h1>
         <button id="idShowStage3">Show</button>
-        <button id="idHideStage3">Hide</button>
+        <button id="idHideStage3" class="hidden">Hide</button>
         <button id="idRunStage3">Run</button>
         <iframe id="idIFrameStage3" title="Stage 3" width="800px" height="700px" src="./Stage3/hangman.html"></iframe>
         <p>To view the code, clone the Git repo <a
@@ -70,23 +70,30 @@
         let elemShowStage3 = document.getElementById('idShowStage3');
         let elemHideStage3 = document.getElementById('idHideStage3');
         let elemIFrameStage3 = document.getElementById('idIFrameStage3');
-        elemShowStage3.classList.remove("hidden");
-        elemIFrameStage3.style.display = "none";
-
-        elemIFrameStage3.style.display = "none";
         document.getElementById('idShowStage3').addEventListener('click', function () {
             elemIFrameStage3.style.display = "block";
-            elemHideStage3.classList.remove("hidden");
-            elemShowStage3.classList.add("hidden");
+            toggleShowHide("idShowStage3", "idHideStage3")
         });
         document.getElementById('idHideStage3').addEventListener('click', function () {
             elemHideStage3.classList.add("hidden");
-            elemShowStage3.classList.remove("hidden");
-            elemIFrameStage3.style.display = "none";
+            toggleShowHide("idShowStage3", "idHideStage3")
         });
         document.getElementById('idRunStage3').addEventListener('click', function () {
             location.href = './Stage3/hangman.html'
         });
+
+        function toggleShowHide(idShow, idHide) {
+            let elemShow = document.getElementById('idShow');
+            let elemHide = document.getElementById('idHide');
+            if (elemShow.classList.contains("hidden")) {
+                elemShow.classList.remove("hidden");
+                elemHide.classList.add("hidden");
+            } else {
+                elemShow.classList.add("hidden");
+                elemHide.classList.remove("hidden");
+            }
+        }
+
     </script>
 
 </body>
