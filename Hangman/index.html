@@ -79,9 +79,9 @@
         });
 
         function toggleShowHide(idShow, idHide, idIFrame) {
-            let elemShow = document.getElementById('idShow');
-            let elemHide = document.getElementById('idHide');
-            let elemIFrame = document.getElementById('idIFrame');
+            let elemShow = document.getElementById(idShow);
+            let elemHide = document.getElementById(idHide);
+            let elemIFrame = document.getElementById(idIFrame);
             if (elemShow.classList && !elemShow.classList.contains("hidden")) {
                 elemShow.classList.add("hidden");
                 elemHide.classList.remove("hidden");
