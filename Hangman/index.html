@@ -45,7 +45,7 @@
         <button id="idShowStage3" class="">Show</button>
         <button id="idHideStage3" class="hidden">Hide</button>
         <button id="idRunStage3">Run</button>
-        <iframe id="idIFrameStage3" title="Stage 3" width="800px" height="700px" src="./Stage3/hangman.html"></iframe>
+        <iframe id="idIFrameStage3" class="hidden" width="800px" height="700px" src="./Stage3/hangman.html"></iframe>
         <p>To view the code, clone the Git repo <a
                 href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
         <p>This is Stage 2 in the development of Hangman. In this stage, these improvements have been made:</p>
@@ -67,7 +67,7 @@
     <script src="/coding/coding.js">
     </script>
     <script>
-        document.getElementById('idIFrameStage3').style.display = "none";
+        //document.getElementById('idIFrameStage3').style.display = "none";
         document.getElementById('idShowStage3').addEventListener('click', function () {
             toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3");
         });

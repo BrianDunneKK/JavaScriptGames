@@ -132,10 +132,7 @@ td {
 }
 
 iframe {
-    display: block;
     resize: both;
 }
 
-.hidden {
-    display: none;
-}
+.hidden { display:none; }
