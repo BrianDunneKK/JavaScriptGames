@@ -133,8 +133,5 @@ td {
 
 iframe {
     display: block;
-    margin: 0 auto;
     resize: both;
-    width: 800px;
-    height: 800px;
 }
