@@ -42,7 +42,7 @@
     </div>
     <div id="3" class="tabcontent">
         <h1>Hangman - Stage 3</h1>
-        <button id="idShowStage3">Show</button>
+        <button id="idShowStage3" class="">Show</button>
         <button id="idHideStage3" class="hidden">Hide</button>
         <button id="idRunStage3">Run</button>
         <iframe id="idIFrameStage3" title="Stage 3" width="800px" height="700px" src="./Stage3/hangman.html"></iframe>
@@ -82,15 +82,14 @@
             let elemShow = document.getElementById('idShow');
             let elemHide = document.getElementById('idHide');
             let elemIFrame = document.getElementById('idIFrame');
-            if (elemShow.classList.contains("hidden")) {
-                elemShow.classList.remove("hidden");
-                elemHide.classList.add("hidden");
-                elemIFrame.style.display = "block";
-
-            } else {
+            if (elemShow.classList && !elemShow.classList.contains("hidden")) {
                 elemShow.classList.add("hidden");
                 elemHide.classList.remove("hidden");
                 elemIFrame.style.display = "none";
+            } else {
+                elemShow.classList.remove("hidden");
+                elemHide.classList.add("hidden");
+                elemIFrame.style.display = "block";
             }
         }
 
