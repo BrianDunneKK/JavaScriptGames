@@ -44,10 +44,10 @@
         <h1>Hangman - Stage 3</h1>
         <button id="idShowStage3" class="">Show</button>
         <button id="idHideStage3" class="hidden">Hide</button>
-        <button id="idRunStage3">Run</button>
+        <button onclick=" window.open('./Stage3/hangman.html','_blank')">Run</button>
+        <button
+            onclick=" window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Hangman/Stage3','_blank')">Code</button>
         <iframe id="idIFrameStage3" class="hidden" width="800px" height="700px" src="./Stage3/hangman.html"></iframe>
-        <p>To view the code, clone the Git repo <a
-                href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
         <p>This is Stage 2 in the development of Hangman. In this stage, these improvements have been made:</p>
         <ul>
             <li>A new CSS style file has been added and applied to the HTML.</li>
@@ -67,15 +67,11 @@
     <script src="/coding/coding.js">
     </script>
     <script>
-        //document.getElementById('idIFrameStage3').style.display = "none";
         document.getElementById('idShowStage3').addEventListener('click', function () {
             toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3");
         });
         document.getElementById('idHideStage3').addEventListener('click', function () {
             toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3");
-        });
-        document.getElementById('idRunStage3').addEventListener('click', function () {
-            location.href = './Stage3/hangman.html'
         });
 
         function toggleShowHide(idShow, idHide, idIFrame) {
