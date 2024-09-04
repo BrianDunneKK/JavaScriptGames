@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../JavaScriptGames.css">
+    <title>Stopwatch - JavaScript game created by CoderDojo Kilkenny</title>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openSection(event, '1')" id="defaultOpen">Stage 1</button>
+        <button class="tablinks" onclick="openSection(event, '2')">Stage 2</button>
+        <button class="tablinks" onclick="openSection(event, '3')">Stage 3</button>
+        <p class="menuspacer">&nbsp;</p>
+        <button class="tablinks" style="background-color: goldenrod;"
+            onclick="location.href = '/coding/javascript.html';">JavaScript</button>
+    </div>
+
+    <div id="1" class="tabcontent">
+        <h1>Stopwatch - Stage 1</h1>
+        <div class="controlButtons">
+            <button id="idShowStage1" class=""
+                onclick='toggleShowHide("idShowStage1", "idHideStage1", "idIFrameStage1")'>Show</button>
+            <button id="idHideStage1" class="hidden"
+                onclick='toggleShowHide("idShowStage1", "idHideStage1", "idIFrameStage1")'>Hide</button>
+            <button onclick="window.open('./Stage1/stopwatch.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Stopwatch/Stage1','_blank')">Code</button>
+            <iframe id="idIFrameStage1" class="hidden" width="800px" height="700px" src="./Stage1/stopwatch.html"></iframe>
+        </div>
+        <p>This is Stage 1 in the development of a stopwatch. In this stage, there is a working stopwatch with a basic user interface.</p>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Make it better!</li>
+        </ol>
+    </div>
+    <div id="2" class="tabcontent">
+        <h1>Stopwatch - Stage 2</h1>
+        <div class="controlButtons">
+            <button id="idShowStage2" class=""
+                onclick='toggleShowHide("idShowStage2", "idHideStage2", "idIFrameStage2")'>Show</button>
+            <button id="idHideStage2" class="hidden"
+                onclick='toggleShowHide("idShowStage2", "idHideStage2", "idIFrameStage2")'>Hide</button>
+            <button onclick="window.open('./Stage2/stopwatch.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Stopwatch/Stage2','_blank')">Code</button>
+            <iframe id="idIFrameStage2" class="hidden" width="800px" height="700px" src="./Stage2/stopwatch.html"></iframe>
+        </div>
+        <p>This is Stage 2 in the development of Stopwatch. In this stage, these improvements have been made:</p>
+        <ul>
+            <li>Stylesheet added</li>
+            <li>Display either "Start" or "Pause" with different colours.</li>
+            <li>Enable/Disable the Reset button.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>To make it better!</li>
+        </ol>
+    </div>
+    <div id="3" class="tabcontent">
+        <h1>Stopwatch - Stage 3</h1>
+        <div class="controlButtons">
+            <button id="idShowStage3" class=""
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Show</button>
+            <button id="idHideStage3" class="hidden"
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Hide</button>
+            <button onclick="window.open('./Stage3/stopwatch.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Stopwatch/Stage3','_blank')">Code</button>
+            <iframe id="idIFrameStage3" class="hidden" width="800px" height="700px" src="./Stage3/stopwatch.html"></iframe>
+        </div>
+        <p>This is Stage 3 in the development of Stopwatch. In this stage, these improvements have been made:</p>
+        <ul>
+            <li>A lap timer has been added.</li>
+            <li>Multiple stopwatches can be used in parallel.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>To make it better!</li>
+        </ol>
+    </div>
+    <script src="/coding/coding.js"></script>
+    <script src="../JavaScriptGames.js"></script>
+</body>
+
+</html>
