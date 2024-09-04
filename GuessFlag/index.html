@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../JavaScriptGames.css">
+    <title>GuessFlag - JavaScript game created by CoderDojo Kilkenny</title>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openSection(event, '1')" id="defaultOpen">Stage 1</button>
+        <p class="menuspacer">&nbsp;</p>
+        <button class="tablinks" style="background-color: goldenrod;"
+            onclick="location.href = '/coding/javascript.html';">JavaScript</button>
+    </div>
+
+    <div id="1" class="tabcontent">
+        <h1>GuessFlag - Stage 1</h1>
+        <div class="controlButtons">
+            <button id="idShowStage1" class=""
+                onclick='toggleShowHide("idShowStage1", "idHideStage1", "idIFrameStage1")'>Show</button>
+            <button id="idHideStage1" class="hidden"
+                onclick='toggleShowHide("idShowStage1", "idHideStage1", "idIFrameStage1")'>Hide</button>
+            <button onclick="window.open('./Stage1/guessflag.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/GuessFlag/Stage1','_blank')">Code</button>
+            <iframe id="idIFrameStage1" class="hidden" width="800px" height="700px"
+                src="./Stage1/guessflag.html"></iframe>
+        </div>
+        <p>This is Stage 1 in the development of Guess the Flag, where you are given a country and have to identify
+            which is its flag.</p>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Complete the game.</li>
+            <li>Take a look at <a
+                    href="https://coderdojokk.ie/coding/github-ninja/lukewaldron11/javascript-games-cdkk/GuessFlag/Stage1/guessflag.html">Flagle</a>
+            </li>
+        </ol>
+    </div>
+    <script src="/coding/coding.js"></script>
+    <script src="../JavaScriptGames.js"></script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ In this stage, these improvements have been made:
 
 1. The game model determines if you have won or lost.
 2. The UI displays a message depending on whether you've won or lost.
-3. A list of common words and a lkist of all allowed words are loaded.
+3. A list of common words and a list of all allowed words are loaded.
 4. Select the secret word from the common word list.
 
 Try to make these additional improvements to the game:

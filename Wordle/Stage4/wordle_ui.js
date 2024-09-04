@@ -35,7 +35,7 @@ class WordleUI extends cdkkGameUI {
             this.#elemOutcome.style.visibility = "hidden";
         }
 
-        // Blank our previous words
+        // Blank out previous words
         while (this.#elemGuesses.firstChild && this.#elemGuesses.removeChild(this.#elemGuesses.firstChild));
 
         for (let i = 0; i <= gameView.words.length; i++) {
