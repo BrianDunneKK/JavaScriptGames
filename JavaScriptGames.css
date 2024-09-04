@@ -139,10 +139,9 @@ iframe {
 
 .controlButtons button {
     background-color: yellowgreen;
-    padding: 2pt 18pt;
+    border-width: 1px;
     margin: 0pt 0pt 6pt 12pt;
     font-size: large;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
     border-radius: 6pt;
+    width: 80pt;
 }
