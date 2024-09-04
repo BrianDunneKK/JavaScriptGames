@@ -25,9 +25,17 @@
     </div>
     <div id="2" class="tabcontent">
         <h1>Hangman - Stage 2</h1>
-        <p>Run the code ... <a href="./Stage2/hangman.html">Stage 2</a></p>
-        <p>To view the code, clone the Git repo <a
-                href="https://github.com/BrianDunneKK/JavaScriptGames.git">JavaScriptGames</a></p>
+        <div class="controlButtons">
+            <button id="idShowStage2" class=""
+                onclick='toggleShowHide("idShowStage2", "idHideStage2", "idIFrameStage2")'>Show</button>
+            <button id="idHideStage2" class="hidden"
+                onclick='toggleShowHide("idShowStage2", "idHideStage2", "idIFrameStage2")'>Hide</button>
+            <button onclick="window.open('./Stage2/hangman.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Hangman/Stage2','_blank')">Code</button>
+            <iframe id="idIFrameStage2" class="hidden" width="800px" height="700px"
+                src="./Stage2/hangman.html"></iframe>
+        </div>
         <p>This is Stage 2 in the development of Hangman. In this stage, these improvements have been made:</p>
         <ul>
             <li>The game is now a simple web application.</li>
@@ -42,12 +50,17 @@
     </div>
     <div id="3" class="tabcontent">
         <h1>Hangman - Stage 3</h1>
-        <button id="idShowStage3" class="">Show</button>
-        <button id="idHideStage3" class="hidden">Hide</button>
-        <button onclick=" window.open('./Stage3/hangman.html','_blank')">Run</button>
-        <button
-            onclick=" window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Hangman/Stage3','_blank')">Code</button>
-        <iframe id="idIFrameStage3" class="hidden" width="800px" height="700px" src="./Stage3/hangman.html"></iframe>
+        <div class="controlButtons">
+            <button id="idShowStage3" class=""
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Show</button>
+            <button id="idHideStage3" class="hidden"
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Hide</button>
+            <button onclick="window.open('./Stage3/hangman.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Hangman/Stage3','_blank')">Code</button>
+            <iframe id="idIFrameStage3" class="hidden" width="800px" height="700px"
+                src="./Stage3/hangman.html"></iframe>
+        </div>
         <p>This is Stage 2 in the development of Hangman. In this stage, these improvements have been made:</p>
         <ul>
             <li>A new CSS style file has been added and applied to the HTML.</li>
@@ -64,33 +77,8 @@
             <li>Prevent the player from continuing to guess after the game is over.</li>
         </ol>
     </div>
-    <script src="/coding/coding.js">
-    </script>
-    <script>
-        document.getElementById('idShowStage3').addEventListener('click', function () {
-            toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3");
-        });
-        document.getElementById('idHideStage3').addEventListener('click', function () {
-            toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3");
-        });
-
-        function toggleShowHide(idShow, idHide, idIFrame) {
-            let elemShow = document.getElementById(idShow);
-            let elemHide = document.getElementById(idHide);
-            let elemIFrame = document.getElementById(idIFrame);
-            if (elemShow.classList && !elemShow.classList.contains("hidden")) {
-                elemShow.classList.add("hidden");
-                elemHide.classList.remove("hidden");
-                elemIFrame.style.display = "block";
-            } else {
-                elemShow.classList.remove("hidden");
-                elemHide.classList.add("hidden");
-                elemIFrame.style.display = "none";
-            }
-        }
-
-    </script>
-
+    <script src="/coding/coding.js"></script>
+    <script src="../JavaScriptGames.js"></script>
 </body>
 
 </html>

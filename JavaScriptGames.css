@@ -136,3 +136,13 @@ iframe {
 }
 
 .hidden { display:none; }
+
+.controlButtons button {
+    background-color: yellowgreen;
+    padding: 2pt 18pt;
+    margin: 0pt 0pt 6pt 12pt;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 6pt;
+}
