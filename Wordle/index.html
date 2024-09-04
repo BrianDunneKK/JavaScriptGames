@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../JavaScriptGames.css">
+    <title>Wordle - JavaScript game created by CoderDojo Kilkenny</title>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openSection(event, '1')" id="defaultOpen">Stage 1</button>
+        <button class="tablinks" onclick="openSection(event, '2')">Stage 2</button>
+        <button class="tablinks" onclick="openSection(event, '3')">Stage 3</button>
+        <button class="tablinks" onclick="openSection(event, '4')">Stage 4</button>
+        <p class="menuspacer">&nbsp;</p>
+        <button class="tablinks" style="background-color: goldenrod;"
+            onclick="location.href = '/coding/javascript.html';">JavaScript</button>
+    </div>
+
+    <div id="1" class="tabcontent">
+        <h1>Wordle - Stage 1</h1>
+        <div class="controlButtons">
+            <button id="idShowStage1" class=""
+                onclick='toggleShowHide("idShowStage1", "idHideStage1", "idIFrameStage1")'>Show</button>
+            <button id="idHideStage1" class="hidden"
+                onclick='toggleShowHide("idShowStage1", "idHideStage1", "idIFrameStage1")'>Hide</button>
+            <button onclick="window.open('./Stage1/Wordle.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Wordle/Stage1','_blank')">Code</button>
+            <iframe id="idIFrameStage1" class="hidden" width="800px" height="700px" src="./Stage1/Wordle.html"></iframe>
+        </div>
+        <p>This is Stage 1 in the development of Wordle. This stage is just the user interface of the game. There is no
+            game or
+            UI logic and so there is no JavaScript.</p>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Create your own styles.</li>
+            <li>Add some graphics to the page.</li>
+        </ol>
+    </div>
+    <div id="2" class="tabcontent">
+        <h1>Wordle - Stage 2</h1>
+        <div class="controlButtons">
+            <button id="idShowStage2" class=""
+                onclick='toggleShowHide("idShowStage2", "idHideStage2", "idIFrameStage2")'>Show</button>
+            <button id="idHideStage2" class="hidden"
+                onclick='toggleShowHide("idShowStage2", "idHideStage2", "idIFrameStage2")'>Hide</button>
+            <button onclick="window.open('./Stage2/Wordle.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Wordle/Stage2','_blank')">Code</button>
+            <iframe id="idIFrameStage2" class="hidden" width="800px" height="700px" src="./Stage2/Wordle.html"></iframe>
+        </div>
+        <p>This is Stage 2 in the development of Wordle. In this stage, these improvements have been made:</p>
+        <ul>
+            <li>A simple Wordle JavaScript app (wordle_app.js) is added. This is loaded by the HTML file.</li>
+            <li>The sample words are removed from the HTML file.</li>
+            <li>A JavaScript game class is added (wordle_game.js) but it has no logic yet. </li>
+            <li>The JavaScript UI class is added to display previous guesses, with colouring, and the latest guess.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>To make it better!</li>
+        </ol>
+    </div>
+    <div id="3" class="tabcontent">
+        <h1>Wordle - Stage 3</h1>
+        <div class="controlButtons">
+            <button id="idShowStage3" class=""
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Show</button>
+            <button id="idHideStage3" class="hidden"
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Hide</button>
+            <button onclick="window.open('./Stage3/Wordle.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Wordle/Stage3','_blank')">Code</button>
+            <iframe id="idIFrameStage3" class="hidden" width="800px" height="700px" src="./Stage3/Wordle.html"></iframe>
+        </div>
+        <p>This is Stage 3 in the development of Wordle. In this stage, these improvements have been made:</p>
+        <ul>
+            <li>The game model now handles user input and calculates the letter colours.</li>
+            <li>Sample data is removed from the game and UI files.</li>
+            <li>There is no chnage to the wordle.html, wordle.css or wordle_app.js files.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>To make it better!</li>
+        </ol>
+    </div>
+    <div id="4" class="tabcontent">
+        <h1>Wordle - Stage 4</h1>
+        <div class="controlButtons">
+            <button id="idShowStage4" class=""
+                onclick='toggleShowHide("idShowStage4", "idHideStage4", "idIFrameStage4")'>Show</button>
+            <button id="idHideStage4" class="hidden"
+                onclick='toggleShowHide("idShowStage4", "idHideStage4", "idIFrameStage4")'>Hide</button>
+            <button onclick="window.open('./Stage4/Wordle.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Wordle/Stage4','_blank')">Code</button>
+            <iframe id="idIFrameStage4" class="hidden" width="800px" height="700px" src="./Stage4/Wordle.html"></iframe>
+        </div>
+        <p>This is Stage 4 in the development of Wordle. In this stage, these improvements have been made:</p>
+        <ul>
+            <li>The game model determines if you have won or lost.</li>
+            <li>The UI displays a message depending on whether you've won or lost.</li>
+            <li>A list of common words and a lkist of all allowed words are loaded.</li>
+            <li>Select the secret word from the common word list.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Prevent the user from entering new words after they have lost</li>
+            <li>Display the secret word after the player has lost.</li>
+            <li>Allow the user to use backspace to delete the last letter entered.</li>
+        </ol>
+    </div>
+    <script src="/coding/coding.js"></script>
+    <script src="../JavaScriptGames.js"></script>
+</body>
+
+</html>
