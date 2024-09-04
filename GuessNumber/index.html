@@ -34,7 +34,7 @@
             <button onclick="window.open('./Stage2/hangman.html','_blank')">Run</button>
             <button
                 onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/GuessNumber/Stage2','_blank')">Code</button>
-            <iframe id="idIFrameStage2" class="hidden" width="800px" height="700px"
+            <iframe id="idIFrameStage2" class="hidden" width="800px" height="250px"
                 src="./Stage2/guessnumber.html"></iframe>
         </div>
         <p>This is Stage 2 in the development of GuessNumber, a basic guessing game. In this stage, these improvements
@@ -49,6 +49,35 @@
             <li>Display a new mesage if the guess is not a number.</li>
             <li>Add some colour!</li>
             <li>Count the number of guesses and display as part of the result.</li>
+        </ol>
+    </div>
+    <div id="3" class="tabcontent">
+        <h1>GuessNumber - Stage 3</h1>
+        <div class="controlButtons">
+            <button id="idShowStage3" class=""
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Show</button>
+            <button id="idHideStage3" class="hidden"
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Hide</button>
+            <button onclick="window.open('./Stage3/hangman.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/GuessNumber/Stage3','_blank')">Code</button>
+            <iframe id="idIFrameStage3" class="hidden" width="800px" height="250px"
+                src="./Stage3/guessnumber.html"></iframe>
+        </div>
+        <p>This is Stage 3 in the development of GuessNumber, a basic guessing game. In this stage, these improvements
+            have been made:</p>
+        <ul>
+            <li>The JavaScript has been moved to its own file.</li>
+            <li>The number of guesses are counted and displayed.</li>
+            <li>A label has been added to the guess text box.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Display a new mesage if the guess is not between 1 and 10.</li>
+            <li>Display a new mesage if the guess is not a number.</li>
+            <li>Add some colour!</li>
+            <li>After 3 guesses, tell the player that they have lost.</li>
+            <li>Don't allow more than 3 guesses.</li>
         </ol>
     </div>
     <script src="/coding/coding.js"></script>
