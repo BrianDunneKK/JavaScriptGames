@@ -10,3 +10,11 @@ function playSound(key) {
     const audio = new Audio(`../Sounds/${note}.mp3`);
     audio.play();
 }
+
+document.addEventListener('keydown', function (event) {
+    keys.forEach(key => {
+        if (key.getAttribute('data-keyboard') === event.key) {
+            playSound(key);
+        }
+    });
+});
