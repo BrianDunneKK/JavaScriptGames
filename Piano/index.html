@@ -11,6 +11,8 @@
         <button class="tablinks" onclick="openSection(event, '0')" id="defaultOpen">Stage 0</button>
         <button class="tablinks" onclick="openSection(event, '1')">Stage 1</button>
         <button class="tablinks" onclick="openSection(event, '2')">Stage 2</button>
+        <button class="tablinks" onclick="openSection(event, '3')">Stage 3</button>
+        <button class="tablinks" onclick="openSection(event, '4')">Stage 4</button>
         <p class="menuspacer">&nbsp;</p>
         <button class="tablinks" style="background-color: goldenrod;"
             onclick="location.href = '/coding/javascript.html';">JavaScript</button>
@@ -92,6 +94,70 @@ when the user clicks on the piano key. The game should be divided into html, css
         <ol>
             <li>Change the duration of each note. Here's a <a
                     href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement">clue </a></li>
+        </ol>
+    </div>
+    <div id="3" class="tabcontent">
+        <h1>Piano - Stage 3</h1>
+        <div class="controlButtons">
+            <button id="idShowStage3" class=""
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Show</button>
+            <button id="idHideStage3" class="hidden"
+                onclick='toggleShowHide("idShowStage3", "idHideStage3", "idIFrameStage3")'>Hide</button>
+            <button onclick="window.open('./Stage3/piano.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Piano/Stage3','_blank')">Code</button>
+            <iframe id="idIFrameStage3" class="hidden" width="1000px" height="700px" src="./Stage3/piano.html"></iframe>
+        </div>
+        <p>This is Stage 3 in the development of Piano. Stage 1 and Stage 2 used lots of audio files (one for each key)
+            to play every note. In this stage, we stop using the audio files and instead each note is generated using code.
+            We'll see in the next stage that this gives much greater flexibility in what the note sounds like.
+        </p>
+        <p>We use the JavaScript framework called <a href="https://tonejs.github.io/">Tone.js</a> to generate the sounds.
+        </p>
+        <p>In this stage, these improvements have been made:</p>
+        <ul>
+            <li>Load the Tone.JS framework by adding this code to piano.html:
+                <pre>&lt;script src="http://unpkg.com/tone"&gt;&lt;/script&gt;</pre>
+            </li>
+            <li>Modify piano.html so that sharp keys use "#" instead of "s", so for example "C#" replaces "Cs". This is
+                how notes
+                are written for Tone.JS.</li>
+            <li>Change from playing the note on "mouseover" back on a mouse "click".</li>
+            <li>In Tone.JS, sounds a produced by a synthesiser, so add the following code to create one:</li>
+            <pre>const synth = new Tone.Synth().toDestination();</pre>
+            <li>Change the <code>playSound()</code> function to contain:</li>
+            <pre>let note = key.getAttribute('data-note');
+synth.triggerAttackRelease(note, "4n");</pre>
+        </ul>
+        <p class="explain">The function <code>triggerAttackRelease</code> is used to start playing a note (for example the note
+            "C#3") and to stop playing it after the duration "4n", which is a 1/4 note (crotchet). So Tone.JS uses "attack" to
+            mean start and "release" to mean stop.</p>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Experiment with different note lengths.</li>
+        </ol>
+    </div>
+    <div id="4" class="tabcontent">
+        <h1>Piano - Stage 4</h1>
+        <div class="controlButtons">
+            <button id="idShowStage4" class=""
+                onclick='toggleShowHide("idShowStage4", "idHideStage4", "idIFrameStage4")'>Show</button>
+            <button id="idHideStage4" class="hidden"
+                onclick='toggleShowHide("idShowStage4", "idHideStage4", "idIFrameStage4")'>Hide</button>
+            <button onclick="window.open('./Stage4/piano.html','_blank')">Run</button>
+            <button
+                onclick="window.open('https://github.com/BrianDunneKK/JavaScriptGames/tree/main/Piano/Stage4','_blank')">Code</button>
+            <iframe id="idIFrameStage4" class="hidden" width="1000px" height="700px" src="./Stage4/piano.html"></iframe>
+        </div>
+        <p>This is Stage 4 in the development of Piano. In this stage, these improvements have been made:</p>
+        <ul>
+            <li>Add some synthesiser buttons to piano.html.</li>
+            <li>Modify piano.js to create a different synthesiser as each button is pressed.</li>
+        </ul>
+        <h2>Try ...</h2>
+        <ol>
+            <li>Add some more synthesisers after looking at <a
+                    href="https://tonejs.github.io/docs/15.0.4/classes/Synth.html">this</a>.</li>
         </ol>
     </div>
     <script src="/coding/coding.js"></script>
